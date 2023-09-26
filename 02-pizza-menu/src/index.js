@@ -4,10 +4,11 @@
  * @Author: ZJJ
  * @Date: 2023-09-25 17:20:01
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-25 18:07:34
+ * @LastEditTime: 2023-09-25 20:33:26
  */
 import React from "react";
 import ReacDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -56,7 +57,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -65,16 +66,44 @@ function App() {
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  //const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  const style = {};
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price="10"
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price="12"
+      />
+    </main>
+  );
+}
+
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name}></img>
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
     </div>
   );
 }
@@ -88,19 +117,11 @@ function Footer() {
   //   if (hour >= openHour && hour <= closeHour) alert("We're currently open");
   //   else alert("Sorry we're closed");
   return (
-    <footer>{new Date().toLocaleTimeString()}. We're currently open</footer>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}. We're currently open
+    </footer>
   );
   //return React.createElement("footer", null, "We're currently open");
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza Spinaci"></img>
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
-  );
 }
 
 //React v18: render root

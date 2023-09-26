@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-25 17:20:01
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-25 22:02:54
+ * @LastEditTime: 2023-09-25 22:06:44
  */
 import React from "react";
 import ReacDOM from "react-dom/client";
@@ -83,11 +83,17 @@ function Menu() {
     <main className="menu">
       <h2>Our Menu</h2>
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all dilicious.
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We're still working on our menu. Please come back later :)</p>
       )}

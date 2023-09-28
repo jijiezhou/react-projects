@@ -30,7 +30,6 @@ export default function App() {
     }
   }
 
-  //test
   return (
     <>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>

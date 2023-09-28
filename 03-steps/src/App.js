@@ -13,7 +13,7 @@ const messages = [
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
-
+//test again and again
 export default function App() {
   const [step, setStep] = useState(1); //hook
   const [isOpen, setIsOpen] = useState(true);
@@ -29,7 +29,6 @@ export default function App() {
     }
   }
 
-  //test again
   return (
     <>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>

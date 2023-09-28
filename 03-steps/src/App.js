@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-25 23:19:15
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-27 21:57:56
+ * @LastEditTime: 2023-09-27 21:59:04
  */
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ const messages = [
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
-//test again and again
+
 export default function App() {
   const [step, setStep] = useState(1); //hook
   const [isOpen, setIsOpen] = useState(true);

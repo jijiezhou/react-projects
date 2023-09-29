@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-28 15:25:20
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-28 21:26:41
+ * @LastEditTime: 2023-09-28 22:52:53
  */
 
 import { useState } from "react";
@@ -26,11 +26,23 @@ export default function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} onDeleteItems={handleDeleteItems} />
+      <PackingList
+        items={items}
+        onDeleteItems={handleDeleteItems}
+        onToggleItem={handleToggleItem}
+      />
       <Stats />
     </div>
   );
@@ -82,21 +94,31 @@ function Form({ onAddItems }) {
   );
 }
 
-function PackingList({ items, onDeleteItems }) {
+function PackingList({ items, onDeleteItems, onToggleItem }) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item item={item} key={item.id} onDeleteItems={onDeleteItems} />
+          <Item
+            item={item}
+            key={item.id}
+            onDeleteItems={onDeleteItems}
+            onToggleItem={onToggleItem}
+          />
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ item, onDeleteItems }) {
+function Item({ item, onDeleteItems, onToggleItem }) {
   return (
     <li>
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => onToggleItem(item.id)}
+      ></input>
       <span style={item.packed ? { textDecorationLine: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>

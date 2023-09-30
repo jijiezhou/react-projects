@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-28 15:25:20
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-29 20:02:06
+ * @LastEditTime: 2023-09-29 20:10:58
  */
 
 import { useState } from "react";
@@ -34,6 +34,13 @@ export default function App() {
     );
   }
 
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    if (confirmed) setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -42,6 +49,7 @@ export default function App() {
         items={items}
         onDeleteItems={handleDeleteItems}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
@@ -94,7 +102,7 @@ function Form({ onAddItems }) {
   );
 }
 
-function PackingList({ items, onDeleteItems, onToggleItem }) {
+function PackingList({ items, onDeleteItems, onToggleItem, onClearList }) {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems;
@@ -119,6 +127,7 @@ function PackingList({ items, onDeleteItems, onToggleItem }) {
             key={item.id}
             onDeleteItems={onDeleteItems}
             onToggleItem={onToggleItem}
+            onClearList={onClearList}
           />
         ))}
       </ul>
@@ -129,6 +138,8 @@ function PackingList({ items, onDeleteItems, onToggleItem }) {
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
+
+        <button onClick={onClearList}>Clear List</button>
       </div>
     </div>
   );

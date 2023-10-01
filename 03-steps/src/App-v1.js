@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-29 20:54:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-30 23:02:32
+ * @LastEditTime: 2023-09-30 23:04:27
  */
 import { useState } from "react";
 
@@ -29,7 +29,6 @@ export default function App() {
     }
   }
 
-  //tesjebs
   return (
     <>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>

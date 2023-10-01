@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-29 20:54:18
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-30 23:04:27
+ * @LastEditTime: 2023-09-30 23:05:28
  */
 import { useState } from "react";
 
@@ -22,7 +22,6 @@ export default function App() {
     if (step > 1) setStep((s) => s - 1);
   }
 
-  //test amd test
   function handleNext() {
     if (step < 3) {
       setStep((s) => s + 1);

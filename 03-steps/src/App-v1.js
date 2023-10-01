@@ -22,6 +22,7 @@ export default function App() {
     if (step > 1) setStep((s) => s - 1);
   }
 
+  //test amd test
   function handleNext() {
     if (step < 3) {
       setStep((s) => s + 1);

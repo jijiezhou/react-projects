@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-25 23:19:15
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-09-29 21:11:26
+ * @LastEditTime: 2023-09-29 21:22:17
  */
 import { useState } from "react";
 
@@ -42,12 +42,10 @@ export default function App() {
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">
-            Step {step}: {messages[step - 1]}
-          </p>
+          <StepMessage step={step}>{messages[step - 1]}</StepMessage>
 
           <div className="buttons">
-            <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
+            <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrevious}>
               <span>👈</span>Previous
             </Button>
             <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
@@ -60,11 +58,20 @@ export default function App() {
   );
 }
 
-function Button({ bgColor, textColor, handleNext, children }) {
+function StepMessage({ step, children }) {
+  return (
+    <p className="message">
+      <h3>Step {step}</h3>
+      {children}
+    </p>
+  );
+}
+
+function Button({ bgColor, textColor, onClick, children }) {
   return (
     <button
       style={{ backgroundColor: bgColor, color: textColor }}
-      onClick={handleNext}
+      onClick={onClick}
     >
       {children}
     </button>

@@ -91,7 +91,6 @@ function Logo() {
   );
 }
 
-//test
 function Search() {
   const [query, setQuery] = useState("");
   return (

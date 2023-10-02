@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-09-29 22:58:59
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-02 01:02:24
+ * @LastEditTime: 2023-10-02 01:12:55
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -17,6 +17,5 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <StarRating maxRating={5} />
-    <StarRating maxRating={10} />
   </React.StrictMode>
 );
